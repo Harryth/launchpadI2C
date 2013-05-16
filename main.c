@@ -38,11 +38,10 @@ int main(void)
     {
     	if(i2cDataRX == 0x0F) //Command to start counting
     	{
-    		P1OUT = 0x40;	//Turn on LED
     		while(~(P1IN & 0x04))	//While s2 not pressed
     		{
     			i2cDataTX ++;	//Increase counting
-    			P1OUT ^= 0x40;	//Toggle LED
+    			P1OUT ^= 0x01;	//Toggle LED
     			__delay_cycles(1000);	//Delay
     		}//End while
 
